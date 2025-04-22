@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free online QR code generator to create and customize high-resolution QR codes instantly. No sign-up needed.">
+  <meta name="keywords" content="free QR code generator, online QR code, create QR code, download QR code, customizable QR">
+  <meta name="author" content="QRly">
+  <title>QRly - Free QR Code Generator | Instant QR Maker</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <!-- Google AdSense Placeholder -->
+  <!-- Replace with your own AdSense script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+  <style>
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      padding: 20px; 
+      text-align: center; 
+      background-color: #ffffff; 
+      color: #333; 
+    }
+    h1 { font-size: 2.5em; margin-bottom: 0.3em; }
+    p { font-size: 1.1em; color: #666; margin-bottom: 20px; }
+    input, button, label { margin: 10px; padding: 10px; font-size: 1em; border: 1px solid #ccc; border-radius: 8px; }
+    input[type="text"] { width: 60%; max-width: 400px; }
+    button { background-color: #2d89ef; color: white; border: none; cursor: pointer; transition: 0.3s; }
+    button:hover { background-color: #1b6fc1; }
+    #qrcode { margin-top: 20px; }
+    .footer { margin-top: 40px; font-size: 0.9em; color: #999; }
+    .footer a { color: #999; text-decoration: none; margin: 0 8px; }
+    .brand-logo { font-weight: bold; font-size: 1.3em; color: #2d89ef; margin-bottom: 20px; }
+    .ads-section { margin: 30px auto; max-width: 600px; }
+    .donate { margin-top: 20px; }
+    .donate a { color: #2d89ef; text-decoration: none; font-weight: 500; }
+  </style>
+</head>
+<body>
+
+  <div class="brand-logo">QRly</div>
+
+  <h1>Free Online QR Code Generator</h1>
+  <p>Create custom QR codes in seconds – no sign up, no watermark.</p>
+
+  <input type="text" id="qrText" placeholder="Enter your URL or text here">
+  <br>
+  <label for="color">Color:</label>
+  <input type="color" id="color" value="#000000">
+  <label for="bgColor">Background:</label>
+  <input type="color" id="bgColor" value="#ffffff">
+  <br>
+  <button onclick="generateQRCode()">Generate QR Code</button>
+  <button onclick="downloadQRCode()">Download QR Code</button>
+
+  <div id="qrcode"></div>
+
+  <!-- Google AdSense Section -->
+  <div class="ads-section">
+    <!-- Replace this with your AdSense ad unit -->
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+      data-ad-slot="xxxxxxxxxx"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <div class="donate">
+    ☕ Like this tool? <a href="https://www.buymeacoffee.com/yourname" target="_blank">Buy me a coffee</a>
+  </div>
+
+  <script>
+    let currentQRCode;
+
+    function generateQRCode() {
+      const qrText = document.getElementById("qrText").value;
+      const color = document.getElementById("color").value;
+      const bgColor = document.getElementById("bgColor").value;
+
+      document.getElementById("qrcode").innerHTML = "";
+
+      currentQRCode = new QRCode(document.getElementById("qrcode"), {
+        text: qrText,
+        width: 256,
+        height: 256,
+        colorDark: color,
+        colorLight: bgColor,
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+
+    function downloadQRCode() {
+      const qrCanvas = document.querySelector('#qrcode canvas');
+      if (!qrCanvas) return alert("Please generate a QR code first.");
+      const link = document.createElement('a');
+      link.download = 'qr-code.png';
+      link.href = qrCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+      link.click();
+    }
+  </script>
+
+  <div class="footer">
+    <p>&copy; 2025 QRly. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
+  </div>
+
+</body>
+</html>

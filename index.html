@@ -8,9 +8,9 @@
   <meta name="author" content="QRly">
   <title>QRly - Free QR Code Generator | Instant QR Maker</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <!-- Google AdSense Placeholder -->
-  <!-- Replace with your own AdSense script -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+     crossorigin="anonymous"></script>
   <style>
     body { 
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
@@ -55,11 +55,10 @@
 
   <!-- Google AdSense Section -->
   <div class="ads-section">
-    <!-- Replace this with your AdSense ad unit -->
     <ins class="adsbygoogle"
       style="display:block"
-      data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
-      data-ad-slot="xxxxxxxxxx"
+      data-ad-client="ca-pub-1234567890123456"
+      data-ad-slot="1234567890"
       data-ad-format="auto"
       data-full-width-responsive="true"></ins>
     <script>
@@ -79,7 +78,7 @@
       const color = document.getElementById("color").value;
       const bgColor = document.getElementById("bgColor").value;
 
-      document.getElementById("qrcode").innerHTML = "";
+      document.getElementById("qrcode").innerHTML = ""; // Clear previous
 
       currentQRCode = new QRCode(document.getElementById("qrcode"), {
         text: qrText,
